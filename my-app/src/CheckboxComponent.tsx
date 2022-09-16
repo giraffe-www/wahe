@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
-function App() {
+function CheckboxComponent() {
 
+    //默认复选框列表
     const arr_checkbox: {
         text: string,
         checked: boolean
@@ -37,13 +37,13 @@ function App() {
     }, {
         checked: true,
         text: 'iii'
-    }];
+    }]; 
 
-    const [arr, setArr] = useState(arr_checkbox);
-    const [width, setWidth] = useState('200px');
-    const [value, setValue] = useState(5);
+    const [arr, setArr] = useState(arr_checkbox); //定义复选框列表
+    const [width, setWidth] = useState('200px'); //定义复选框的宽度
+    const [value, setValue] = useState(5); //定义修改值
 
-    //复选修改
+    //复选修改方法
     const onChange = (str: string) => {
         if (arr[0].text === str) {
             for (let i = 0; i < arr.length; i++) {
@@ -65,7 +65,7 @@ function App() {
         setArr([...arr]);
     }
 
-    //展示修改
+    //展示修改方法
     const calculate = (str: string) => {
         let res = value;
         if (str === 'minus' && value !== 1) {
@@ -94,7 +94,7 @@ function App() {
 
                 <div>
                     <span>columns：</span>
-                    <button onClick={() => calculate('minus')}>-</button>
+                    <button onClick={() => calculate('minus')}>-</button> 
                     <input type="text" value={value} />
                     <button onClick={() => calculate('add')}>+</button>
                 </div>
@@ -103,4 +103,4 @@ function App() {
     );
 }
 
-export default App;
+export default CheckboxComponent;
